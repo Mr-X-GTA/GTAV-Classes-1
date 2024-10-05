@@ -210,7 +210,7 @@ public:
 	class rage::rlSessionInfo m_unk_session_info; //0xB408
 	char pad_B4D8[643]; //0xB4D8
 	bool m_need_host_change; //0xB753
-	char pad_B754[74316]; //0xB754
+	char pad_B754[75868]; //0xB754
 	class rage::rlSessionDetail m_joining_session_detail; //0x1D9A0
 	class SessionInfoBackup m_last_joined_session; //0x1DE18
 	char pad_1DEF4[40]; //0x1DEF4
@@ -236,12 +236,14 @@ public:
 	uint32_t m_in_progress_finish_time; //0x2DAE8
 	char pad_2DAEC[4]; //0x2DAEC
 	bool m_local_player_info_dirty; //0x2DAF0
-	char pad_2DAF1[495]; //0x2DAF1
+	char pad_2DAF1[479]; //0x2DAF1
+	uint32_t m_host_queue_factor[2]; // added b3337
+	char pad_2E588[16];
 	class rage::rlGamerHandle m_inviter_handle; //0x2DCE0
 	class CNetComplaintMgr m_game_complaint_mgr; //0x2DCF0
 	class CNetComplaintMgr m_transition_complaint_mgr; //0x2EB88
 
-	// fields beyond this point are likely outdated!
+	// fields beyond this point are outdated!
 
 	char pad_2FA20[32]; //0x2FA20
 	class JoiningPlayerNameMap m_unused_joining_player_name_map; //0x2FA40
@@ -283,7 +285,9 @@ public:
 	char pad_49C90[80]; //0x49C90
 	class rage::rlGamerHandle m_follower_handles[32]; //0x49CE0
 	uint32_t m_follower_count; //0x49EE0
-	char pad_49EE4[628]; //0x49EE4
+	char pad_49EE4[632]; //0x49EE4
+
+	char pad[6548];
 }; //Size: 0x38650
-static_assert(sizeof(Network) == 0x4A678);
+static_assert(sizeof(Network) == 0x4C628);
 #pragma pack(pop)
