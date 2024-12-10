@@ -29,7 +29,7 @@ public:
 	char pad_0A64[4]; //0x0A64
 	uint64_t m_host_tokens_complained[64]; //0x0A68
 	uint32_t m_num_tokens_complained; //0x0C68
-	char pad_0C6C[520]; //0x0C6C
+	char pad_0C6C[1032]; //0x0C6C
 	uint32_t m_connection_identifier; //0x0E74
 	uint32_t m_last_resend_time; //0x0E78
 	char pad_0E7C[4]; //0x0E7C
@@ -68,5 +68,5 @@ public:
 		m_num_tokens_complained--;
 	}
 
-}; //Size: 0x0C98
-static_assert(sizeof(CNetComplaintMgr) == 0xE98);
+}; //Size: 0x1098
+static_assert(sizeof(CNetComplaintMgr) == 0x1098);
