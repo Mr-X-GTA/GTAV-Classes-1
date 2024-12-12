@@ -212,7 +212,8 @@ struct BOSS_GOON
 	uint64_t                      PAD_0183[4]; // TODO some unknown contraband struct
 	VEHICLE_EXPORT                VehicleExport;
 	uint64_t                      PAD_0193[12]; // TODO
-	SCR_ARRAY<uint64_t, 8>        ActiveFreemodeEvents; // force thunder, size 7 -> 8 b3258
+	SCR_ARRAY<uint64_t, 9>        ActiveFreemodeEvents; // force thunder, size 7 -> 8 b3258
+	                                                    //                     8 -> 9 b3407
 	uint64_t                      PAD_0212[22]; // I'm not even going to bother with this one
 	HANGAR_CARGO                  HangarCargo;
 	uint64_t                      PAD_0236[23]; // not going to bother with this one either
@@ -280,7 +281,7 @@ struct BOSS_GOON
 	uint64_t                      PAD_0478[18]; // TODO
 	SCR_BOOL                      DoubleActionCacheLocationRevealed;
 };
-static_assert(sizeof(BOSS_GOON) == 499 * 8);
+static_assert(sizeof(BOSS_GOON) == 500 * 8);
 
 struct MC_STATS
 {
@@ -348,10 +349,10 @@ struct GBPD_FM_3_Entry
 	SCR_INT                       CasinoFlowProgress;
 	SCR_ARRAY<uint64_t, 1>        DailyObjectiveFlags; // @607 as of 1.67
 };
-static_assert(sizeof(GBPD_FM_3_Entry) == 610 * 8);
+static_assert(sizeof(GBPD_FM_3_Entry) == 611 * 8);
 
 struct GPBD_FM_3
 {
 	SCR_ARRAY<GBPD_FM_3_Entry, 32> Entries;
 };
-static_assert(sizeof(GPBD_FM_3) == 19521 * 8);
+static_assert(sizeof(GPBD_FM_3) == 19553 * 8);
