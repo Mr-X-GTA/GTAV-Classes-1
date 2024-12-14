@@ -459,13 +459,14 @@ static_assert(sizeof(SALVAGE_YARD_DATA) == 7 * 8);
 struct BAIL_SHOP_DATA
 {
 	SCR_INT                           Index;
-	uint64_t                          PAD_0001[12];
+	uint64_t                          PAD_0001[11];
 };
-static_assert(sizeof(BAIL_SHOP_DATA) == 13 * 8);
+static_assert(sizeof(BAIL_SHOP_DATA) == 12 * 8);
 
 struct PROPERTY_DATA
 {
 	SCR_ARRAY<uint64_t, 32>           PropertyIds; // size 30 -> 31 b3095, size 31 -> 32 b3258
+	SCR_INT                           PAD_0033; // added b3407
 	SCR_BITSET<ePropertyInteriorFlags>Flags; // I really don't want to indent everything again
 	SCR_INT                           RingingPlayers; // bitset of players requesting entry into property
 	SCR_INT                           Index; // the value you pass to the send to apartment TSE
@@ -474,7 +475,7 @@ struct PROPERTY_DATA
 	PLAYER_INDEX                      ExteriorOwner;
 	SCR_ARRAY<uint64_t, 32>           RingingPlayersState; // 0 = ringing, 1 = accepted, 2 = denied
 	GAMER_HANDLE                      OwnerHandle; // can be used to bypass RID spoofing when player is inside interior
-	SCR_ARRAY<uint64_t, 32>           EclipseTheme; // size 30 -> 31 b3095, size 31 -> 32 b3258
+	SCR_ARRAY<uint64_t, 33>           EclipseTheme; // size 30 -> 31 b3095, size 31 -> 32 b3258, size 32 -> 33 b3407
 	SCR_INT                           ApartmentType; // normal vs stilt vs eclipse
 	SCR_INT                           OwnerInstance; // same as Instance in most cases
 	SCR_ARRAY<EXEC_WAREHOUSE_INFO, 5> ExecutiveWarehouseInfos;
@@ -548,8 +549,9 @@ struct PROPERTY_DATA
 	MULTI_STOREY_GARAGE_DATA          MultiStoreyGarageData; // @507 as of 1.67
 	SCR_INT                           FreakshopBits; // 0: has weapon workshop, 1: radio enabled
 	BAIL_SHOP_DATA                    BailShopData;
+	uint64_t                          PAD_539[5]; // added b3407
 };
-static_assert(sizeof(PROPERTY_DATA) == 538 * 8);
+static_assert(sizeof(PROPERTY_DATA) == 544 * 8);
 
 struct BIKER_CONTRACTS
 {
@@ -659,10 +661,10 @@ struct GPBD_FM_Entry
 	SCR_INT                           ApartmentEnterFlags;
 	SCR_VEC3                          AvengerMissionStartPosition;
 };
-static_assert(sizeof(GPBD_FM_Entry) == 883 * 8);
+static_assert(sizeof(GPBD_FM_Entry) == 889 * 8);
 
 struct GPBD_FM
 {
 	SCR_ARRAY<GPBD_FM_Entry, 32> Entries;
 };
-static_assert(sizeof(GPBD_FM) == 28257 * 8);
+static_assert(sizeof(GPBD_FM) == 28449 * 8);

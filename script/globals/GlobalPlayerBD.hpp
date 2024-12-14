@@ -548,6 +548,7 @@ struct GlobalPlayerBDEntry
 	NETWORK_INDEX                 AcidLabNetId;
 	NETWORK_INDEX                 DeliveryBikeNetId;
 	NETWORK_INDEX                 BountyTransporterNetId; // added b3258
+	NETWORK_INDEX                 UnkVehicleNetId3; // added b3407
 	SCR_BOOL                      PAD_0057;
 	uint64_t                      PAD_0058[15]; // confirmed these are not used by PC scripts
 	PLAYER_BLIP                   PlayerBlip;
@@ -555,7 +556,7 @@ struct GlobalPlayerBDEntry
 	uint64_t                      PAD_0089[32]; // TODO
 	alignas(8) eMissionType       MissionType;
 	SCR_BOOL                      SpawningVehicle;
-	uint64_t                      PAD_0123[3]; // confirmed these are not used by PC scripts
+	uint64_t                      PAD_0123[4]; // confirmed these are not used by PC scripts
 	MISSION_BETS                  MissionBets;
 	SCR_BOOL                      RadarBlipVisibliltyMechanicEnabled;
 	SCR_BITSET<ePlayerStateFlags> PlayerStateFlags;
@@ -662,10 +663,10 @@ struct GlobalPlayerBDEntry
 	SCR_BOOL                      CanSpawnGunVan;
 };
 
-static_assert(sizeof(GlobalPlayerBDEntry) == 465 * 8);
+static_assert(sizeof(GlobalPlayerBDEntry) == 467 * 8);
 
 struct GlobalPlayerBD
 {
 	SCR_ARRAY<GlobalPlayerBDEntry, 32> Entries;
 };
-static_assert(sizeof(GlobalPlayerBD) == 14881 * 8);
+static_assert(sizeof(GlobalPlayerBD) == 14945 * 8);
