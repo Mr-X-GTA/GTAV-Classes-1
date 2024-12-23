@@ -101,6 +101,7 @@ public:
 	CNetGamePlayer* m_host_migration_target;
 	CNetGamePlayer* m_apparent_host_player;
 	char gap60[8];
+	char new_68[8]; // added b3407
 	CScriptParticipant* m_participants[32];
 	char pad_0168[8];
 	int m_next_host_verify_time;
@@ -137,5 +138,5 @@ public:
 		return m_host->m_net_game_player;
 	}
 };
-static_assert(sizeof(CGameScriptHandlerNetComponent) == 0x1A8);
+static_assert(sizeof(CGameScriptHandlerNetComponent) == 0x1B0);
 #pragma pack(pop)

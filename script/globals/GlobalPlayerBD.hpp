@@ -140,7 +140,11 @@ enum class eBlipType
 	GRANGER_3600LX,
 	PATRIOT_MILSPEC,
 	ARMS_DEALING_AIR, // requires some flag to be set
-	BRICKADE_6X6
+	BRICKADE_6X6,
+	RAIJU,
+	CONADA2,
+	STEAMER2,
+	TOW_TRUCK,
 };
 
 enum class ePlayerStateFlags
@@ -394,6 +398,14 @@ enum class eSimpleInteriorIndex
 	SIMPLE_INTERIOR_SALVAGE_YARD_PALETO_BAY,
 	SIMPLE_INTERIOR_SALVAGE_YARD_SANDY_SHORES,
 	SIMPLE_INTERIOR_SALVAGE_YARD_STRAWBERRY,
+	SIMPLE_INTERIOR_BAIL_OFFICE_DAVIS,
+	SIMPLE_INTERIOR_BAIL_OFFICE_DEL_PERRO,
+	SIMPLE_INTERIOR_BAIL_OFFICE_MISSION_ROW,
+	SIMPLE_INTERIOR_BAIL_OFFICE_PALETO_BAY,
+	SIMPLE_INTERIOR_BAIL_OFFICE_WEST_VINEWOOD,
+	SIMPLE_INTERIOR_HACKER_DEN,
+	SIMPLE_INTERIOR_FIELD_HANGAR,
+	SIMPLE_INTERIOR_MAX
 };
 
 struct JOB_STATS
@@ -547,16 +559,17 @@ struct GlobalPlayerBDEntry
 	NETWORK_INDEX                 DeliveryMechanicNetId4; // another one...
 	NETWORK_INDEX                 AcidLabNetId;
 	NETWORK_INDEX                 DeliveryBikeNetId;
-	NETWORK_INDEX                 BountyTransporterNetId; // added b3258
-	NETWORK_INDEX                 UnkVehicleNetId3; // added b3407
-	SCR_BOOL                      PAD_0057;
-	uint64_t                      PAD_0058[15]; // confirmed these are not used by PC scripts
+	NETWORK_INDEX                 BountyTransporterNetId;						// added b3258
+	NETWORK_INDEX                 FieldDusterNetId;								// added b3407
+	SCR_BOOL                      PAD_0057;										// (@59 as of b3407)
+	uint64_t                      PAD_0058[15];									// confirmed these are not used by PC scripts
 	PLAYER_BLIP                   PlayerBlip;
-	SCR_BOOL                      NeedToPopulateSessionStartTime; // the session start time is unused
-	uint64_t                      PAD_0089[32]; // TODO
+	SCR_BOOL                      NeedToPopulateSessionStartTime;				// the session start time is unused
+	uint64_t                      PAD_0089[33];									// TODO (@91 as of b3407)
+	                                                                            // 32 -> 33 (new field) b3407
 	alignas(8) eMissionType       MissionType;
 	SCR_BOOL                      SpawningVehicle;
-	uint64_t                      PAD_0123[4]; // confirmed these are not used by PC scripts
+	uint64_t                      PAD_0123[3];									// confirmed these are not used by PC scripts
 	MISSION_BETS                  MissionBets;
 	SCR_BOOL                      RadarBlipVisibliltyMechanicEnabled;
 	SCR_BITSET<ePlayerStateFlags> PlayerStateFlags;

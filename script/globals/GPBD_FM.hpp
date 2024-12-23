@@ -357,7 +357,7 @@ static_assert(sizeof(ARENA_GARAGE_DATA) == 9 * 8);
 
 struct INSIDE_TRACK
 {
-	TEXT_LABEL_63                     PlayerName; // real name leak when playing inside track
+	TEXT_LABEL_63                     PlayerName;
 	SCR_INT                           BetHorseID;
 	SCR_INT                           BetChips;
 };
@@ -459,14 +459,32 @@ static_assert(sizeof(SALVAGE_YARD_DATA) == 7 * 8);
 struct BAIL_SHOP_DATA
 {
 	SCR_INT                           Index;
-	uint64_t                          PAD_0001[11];
+	uint64_t                          PAD_0001[11]; // a field was removed in b3407
 };
 static_assert(sizeof(BAIL_SHOP_DATA) == 12 * 8);
 
+struct HACKER_DEN_DATA
+{
+	SCR_INT                           Index; // always one for obvious reasons
+	SCR_INT                           Flags;
+	SCR_INT                           SafeCashValue;
+};
+static_assert(sizeof(HACKER_DEN_DATA) == 3 * 8);
+
+struct FIELD_HANGAR_DATA
+{
+	SCR_INT                          Index;
+	SCR_INT                          Flags;
+};
+static_assert(sizeof(FIELD_HANGAR_DATA) == 2 * 8);
+
+#define NUM_PROPERTY_INTERIORS 33 // (30 -> 31) b3095
+                                  // (31 -> 32) b3258
+                                  // (32 -> 33) b3407
+
 struct PROPERTY_DATA
 {
-	SCR_ARRAY<uint64_t, 32>           PropertyIds; // size 30 -> 31 b3095, size 31 -> 32 b3258
-	SCR_INT                           PAD_0033; // added b3407
+	SCR_ARRAY<uint64_t, NUM_PROPERTY_INTERIORS> PropertyIds;
 	SCR_BITSET<ePropertyInteriorFlags>Flags; // I really don't want to indent everything again
 	SCR_INT                           RingingPlayers; // bitset of players requesting entry into property
 	SCR_INT                           Index; // the value you pass to the send to apartment TSE
@@ -475,7 +493,7 @@ struct PROPERTY_DATA
 	PLAYER_INDEX                      ExteriorOwner;
 	SCR_ARRAY<uint64_t, 32>           RingingPlayersState; // 0 = ringing, 1 = accepted, 2 = denied
 	GAMER_HANDLE                      OwnerHandle; // can be used to bypass RID spoofing when player is inside interior
-	SCR_ARRAY<uint64_t, 33>           EclipseTheme; // size 30 -> 31 b3095, size 31 -> 32 b3258, size 32 -> 33 b3407
+	SCR_ARRAY<uint64_t, NUM_PROPERTY_INTERIORS> EclipseTheme;
 	SCR_INT                           ApartmentType; // normal vs stilt vs eclipse
 	SCR_INT                           OwnerInstance; // same as Instance in most cases
 	SCR_ARRAY<EXEC_WAREHOUSE_INFO, 5> ExecutiveWarehouseInfos;
@@ -549,7 +567,8 @@ struct PROPERTY_DATA
 	MULTI_STOREY_GARAGE_DATA          MultiStoreyGarageData; // @507 as of 1.67
 	SCR_INT                           FreakshopBits; // 0: has weapon workshop, 1: radio enabled
 	BAIL_SHOP_DATA                    BailShopData;
-	uint64_t                          PAD_539[5]; // added b3407
+	HACKER_DEN_DATA                   HackerDenData;
+	FIELD_HANGAR_DATA                 FieldHangarData;
 };
 static_assert(sizeof(PROPERTY_DATA) == 544 * 8);
 
