@@ -3,6 +3,7 @@
 #include "../rage/rlGamerInfo.hpp"
 #include "../rage/rlSessionInfo.hpp"
 #include "MatchmakingAttributes.hpp"
+#include "PlatformAccountId.hpp"
 
 #pragma pack(push, 1)
 namespace rage
