@@ -17,9 +17,10 @@ public:
 	std::uint32_t m_dlc_hash;
 	std::uint32_t m_timeout_time;
 	std::uint32_t dword10C;
-	bool m_no_handle;
+	bool m_has_gamer_handle;
 	rage::rlGamerHandle m_gamer_handle;
 	CNetGamePlayerDataMsg m_player_data_msg;
+	uint64_t m_gamer_handle_hash;
 };
-static_assert(sizeof(CMsgJoinRequest) == 0x190);
+static_assert(sizeof(CMsgJoinRequest) == 0x230);
 #pragma pack(pop)

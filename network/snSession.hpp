@@ -99,24 +99,31 @@ namespace rage
 		char pad_37C8[168]; //0x37C8
 	}; //Size: 0x3870
 	static_assert(sizeof(rage::rlMatchmakingFindResult) == 0x43B0);
+#pragma pack(pop)
 
+#pragma pack(push, 8)
 	class netGamePlayerData
 	{
 	public:
-		class rlGamerHandle m_handle;
-		bool m_is_activity_spectator; //0x0010
-		char pad_0011[7]; //0x0011
-		uint64_t m_crew_id; //0x0018
-		uint16_t m_rank; //0x0020
-		uint16_t m_debug_unk; //0x0022
-		char pad_0024[4]; //0x0024
-		uint32_t m_nat_type; //0x0028
-		bool m_is_rockstar_dev; //0x002C
-		char pad_002D[3]; //0x002D
-	}; //Size: 0x0030
-	static_assert(sizeof(rage::netGamePlayerData) == 0x30);
+		class rlGamerHandle m_handle; //0x0000
+		char m_name[17]; //0x0010
+		bool m_is_activity_spectator; //0x0021
+		uint64_t m_crew_id; //0x0028
+		uint16_t m_rank; //0x0030
+		uint16_t m_rating; //0x0032
+		bool unk_0034; //0x0034
+		uint32_t m_nat_type; //0x0038
+		bool m_is_rockstar_dev; //0x003C
+		bool unk_003D; //0x003D
+		bool m_is_boss; //0x003E
+		int m_account_id; //0x0040
+		int64_t m_rockstar_id; //0x0048
+		PlatformAccountId m_platform_account_id; //0x0050
+	}; //Size: 0x00E0
+	static_assert(sizeof(rage::netGamePlayerData) == 0xE0);
+#pragma pack(pop)
 
-
+#pragma pack(push, 1)
 	class snSession
 	{
 	public:

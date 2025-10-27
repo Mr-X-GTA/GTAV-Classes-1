@@ -152,10 +152,10 @@ class RemotePlayerData
 {
 public:
 	class rage::netGamePlayerData m_data[32]; //0x0000
-	uint32_t m_count; //0x0600
-	char pad_0604[4]; //0x0604
-}; //Size: 0x0608
-static_assert(sizeof(RemotePlayerData) == 0x608);
+	uint32_t m_count; //0x1C00
+	char pad_0604[4]; //0x1C04
+}; //Size: 0x1C08
+static_assert(sizeof(RemotePlayerData) == 0x1C08);
 
 class InvitedGamer
 {
@@ -210,7 +210,7 @@ public:
 	class rage::rlSessionInfo m_unk_session_info; //0xB408
 	char pad_B4D8[643]; //0xB4D8
 	bool m_need_host_change; //0xB753
-	char pad_B754[76644]; //0xB754
+	char pad_B754[76652]; //0xB754
 	class rage::rlSessionDetail m_joining_session_detail; //0x1D9A0
 	class SessionInfoBackup m_last_joined_session; //0x1DE18
 	char pad_1DEF4[40]; //0x1DEF4
@@ -245,7 +245,7 @@ public:
 	char pad_309E0[28];
 	uint32_t unk_309FC;
 	uint32_t unk_30A00; // added b3407
-	char pad_30A04[10468];
+	char pad_30A04[10484];
 	class CNetBlacklist m_blacklist; //0x31050
 	char pad_32E90[648]; //0x31308
 	class InvitedGamers m_game_invited_gamers; //0x31310
@@ -288,7 +288,7 @@ public:
 	uint32_t m_follower_count; //0x49EE0
 	char pad_49EE4[632]; //0x49EE4
 
-	char pad[2492];
+	char pad[3252];
 }; //Size: 0x38650
-static_assert(sizeof(Network) == 0x4C628);
+static_assert(sizeof(Network) == 0x4DFE8);
 #pragma pack(pop)

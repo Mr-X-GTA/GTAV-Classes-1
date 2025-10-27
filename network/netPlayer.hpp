@@ -2,6 +2,7 @@
 
 #include "../rage/rlGamerInfo.hpp"
 #include "../player/CNonPhysicalPlayerData.hpp"
+#include "PlatformAccountId.hpp"
 
 namespace rage
 {
@@ -27,7 +28,7 @@ namespace rage
 
         int m_account_id; //0x0008 -- added b3504
         int64_t m_rockstar_id; //0x0010 -- added b3504
-        char new_0018[0x90]; //0x0018 -- added b3504
+        PlatformAccountId m_platform_account_id; //0x0018 -- added b3504
         uint32_t m_player_type; //0x00A8
         CNonPhysicalPlayerData* m_non_physical_player; //0x00B0
         uint32_t m_msg_id; //0x00B8
