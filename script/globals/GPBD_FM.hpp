@@ -478,9 +478,10 @@ struct FIELD_HANGAR_DATA
 };
 static_assert(sizeof(FIELD_HANGAR_DATA) == 2 * 8);
 
-#define NUM_PROPERTY_INTERIORS 33 // (30 -> 31) b3095
+#define NUM_PROPERTY_INTERIORS 36 // (30 -> 31) b3095
                                   // (31 -> 32) b3258
                                   // (32 -> 33) b3407
+                                  // (33 -> 36) b3717
 
 struct PROPERTY_DATA
 {
@@ -569,7 +570,7 @@ struct PROPERTY_DATA
 	HACKER_DEN_DATA                   HackerDenData;
 	FIELD_HANGAR_DATA                 FieldHangarData;
 };
-static_assert(sizeof(PROPERTY_DATA) == 542 * 8);
+static_assert(sizeof(PROPERTY_DATA) == 548 * 8);
 
 struct BIKER_CONTRACTS
 {
@@ -676,10 +677,10 @@ struct GPBD_FM_Entry
 	ARENA_WAR_DATA                    ArenaWarData;           // @858 as of 1.67
 	SCR_INT                           ApartmentEnterFlags;
 };
-static_assert(sizeof(GPBD_FM_Entry) == 874 * 8);
+static_assert(sizeof(GPBD_FM_Entry) == 880 * 8);
 
 struct GPBD_FM
 {
 	SCR_ARRAY<GPBD_FM_Entry, 32> Entries;
 };
-static_assert(sizeof(GPBD_FM) == 27969 * 8);
+static_assert(sizeof(GPBD_FM) == 28161 * 8);
