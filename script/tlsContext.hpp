@@ -21,9 +21,9 @@ namespace rage
         uint32_t m_console_smth; // 0x22D0
         char gapD4[188];
         uint64_t m_unk; // 0x2390
-        char gap198[1720];
-        rage::scrThread* m_script_thread; // 0x2A50
-        bool m_is_script_thread_active; // 0x2A58
+        char gap198[1712];
+        rage::scrThread* m_script_thread; // 0x2A48
+        bool m_is_script_thread_active; // 0x2A50
 
 #if _WIN32
         static tlsContext* get()
@@ -33,6 +33,6 @@ namespace rage
         }
 #endif
     };
-    static_assert(sizeof(tlsContext) == 0x2A59);
+    static_assert(sizeof(tlsContext) == 0x2A51);
 #pragma pack(pop)
 }

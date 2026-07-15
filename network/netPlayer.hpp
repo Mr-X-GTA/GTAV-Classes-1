@@ -29,19 +29,15 @@ namespace rage
         int m_account_id; //0x0008 -- added b3504
         int64_t m_rockstar_id; //0x0010 -- added b3504
         PlatformAccountId m_platform_account_id; //0x0018 -- added b3504
-        uint32_t m_player_type; //0x00A8
-        CNonPhysicalPlayerData* m_non_physical_player; //0x00B0
-        uint32_t m_msg_id; //0x00B8
-        char pad_001C[4]; //0x00BC
-        uint8_t m_active_id; //0x00C0
-        uint8_t m_player_id; //0x00C1
-        char pad_0022[3]; //0x00C2
-        uint16_t m_complaints; //0x00C6
-        char pad_0027[17]; //0x00C8
-        class CNetGamePlayer* m_unk_net_player_list[10]; //0x00E0
-        char pad_0090[4]; //0x0130
-        uint64_t pad_0098; //0x0138
+        uint32_t m_player_type; //0x0048
+        CNonPhysicalPlayerData* m_non_physical_player; //0x0050
+        uint32_t m_msg_id; //0x0058
+        char pad_001C[4]; //0x005C
+        uint8_t m_active_id; //0x0060
+        uint8_t m_player_id; //0x0061
+        uint32_t m_nat_type; //0x0064
+        char pad_0068[120]; //0x0068
     };
-    static_assert(sizeof(netPlayer) == 0x140);
+    static_assert(sizeof(netPlayer) == 0xE0);
 #pragma pack(pop)
 }

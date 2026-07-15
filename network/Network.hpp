@@ -151,10 +151,10 @@ class RemotePlayerData
 {
 public:
 	class rage::netGamePlayerData m_data[32]; //0x0000
-	uint32_t m_count; //0x1C00
-	char pad_0604[4]; //0x1C04
-}; //Size: 0x1C08
-static_assert(sizeof(RemotePlayerData) == 0x1C08);
+	uint32_t m_count; //0x1000
+	char pad_0604[4]; //0x1004
+}; //Size: 0x1008
+static_assert(sizeof(RemotePlayerData) == 0x1008);
 
 class InvitedGamer
 {
@@ -175,7 +175,7 @@ public:
 static_assert(sizeof(InvitedGamers) == 0xC88);
 #pragma pack(pop)
 
-class alignas(8) Network
+class alignas(16) Network
 {
 public:
 	bool m_steam_presence_allow_private_sessions; //0x0000
@@ -202,6 +202,6 @@ public:
 	char pad_2E8E0[24]; //0x2E8E0
 	CNetComplaintMgr m_game_complaint_mgr; //0x2E8F8
 	CNetComplaintMgr m_transition_complaint_mgr; //0x2F990
-	char pad_30A28[120304]; // 0x30A28
-}; //Size: 0x4E018
-static_assert(sizeof(Network) == 0x4E018);
+	char pad_30A28[117176]; // 0x30A28
+}; //Size: 0x4D3E0
+static_assert(sizeof(Network) == 0x4D3E0);

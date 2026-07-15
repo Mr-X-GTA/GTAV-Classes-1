@@ -22,5 +22,5 @@ public:
 	CNetGamePlayerDataMsg m_player_data_msg;
 	uint64_t m_gamer_handle_hash;
 };
-static_assert(sizeof(CMsgJoinRequest) == 0x230);
+static_assert(sizeof(CMsgJoinRequest) == 0x1D0);
 #pragma pack(pop)

@@ -16,10 +16,10 @@ struct PlatformAccountId
 	{
 		uint64_t m_xbox_user_id; //0x0000
 		uint64_t m_steam_id;
-		char m_epic_account_id[128 + 1];
-		char m_pad[136];
+		char m_epic_account_id[32 + 1];
+		char m_pad[40];
 	};
 
-	Platform m_platform; //0x0088
+	Platform m_platform; //0x0028
 };
-static_assert(sizeof(PlatformAccountId) == 0x90);
+static_assert(sizeof(PlatformAccountId) == 0x30);

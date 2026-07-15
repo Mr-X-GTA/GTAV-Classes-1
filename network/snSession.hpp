@@ -120,8 +120,8 @@ namespace rage
 		int m_account_id; //0x0040
 		int64_t m_rockstar_id; //0x0048
 		PlatformAccountId m_platform_account_id; //0x0050
-	}; //Size: 0x00E0
-	static_assert(sizeof(rage::netGamePlayerData) == 0xE0);
+	}; //Size: 0x0080
+	static_assert(sizeof(rage::netGamePlayerData) == 0x80);
 #pragma pack(pop)
 
 #pragma pack(push, 1)

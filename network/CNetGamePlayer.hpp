@@ -61,5 +61,5 @@ public:
     uint32_t unk_02B4; //0x02B4
     char pad_3C8[8];
 };
-static_assert(sizeof(CNetGamePlayer) == 0x3D0);
+static_assert(sizeof(CNetGamePlayer) == 0x370);
 #pragma pack(pop)
