@@ -676,11 +676,12 @@ struct GPBD_FM_Entry
 	SCR_INT                           SeatingIndex;
 	ARENA_WAR_DATA                    ArenaWarData;           // @858 as of 1.67
 	SCR_INT                           ApartmentEnterFlags;
+	SCR_INT                           MissionSwitchState; // added b3889
 };
-static_assert(sizeof(GPBD_FM_Entry) == 880 * 8);
+static_assert(sizeof(GPBD_FM_Entry) == 881 * 8);
 
 struct GPBD_FM
 {
 	SCR_ARRAY<GPBD_FM_Entry, 32> Entries;
 };
-static_assert(sizeof(GPBD_FM) == 28161 * 8);
+static_assert(sizeof(GPBD_FM) == 28193 * 8);
